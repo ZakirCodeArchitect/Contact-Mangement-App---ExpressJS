@@ -6,10 +6,8 @@ const app = express();
 
 const port = process.env.PORT || 3001;
 
-// route for contacts
-app.get("/api/contacts", (req, res) => {
-    res.status(200).json({ message: "Get all the Contacts" })
-})
+// route - adding middleware in our express project
+app.use("/api/contacts", require("./routes/contactsRoutes"))
 
 // listening on port
 app.listen(port, () => {
