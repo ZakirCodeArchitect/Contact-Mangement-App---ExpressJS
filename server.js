@@ -1,4 +1,5 @@
 const express = require("express");
+const errorHandler = require("./middleware/errorHandler");
 const dotenv = require("dotenv").config();
 
 // creating an app
@@ -12,6 +13,9 @@ app.use(express.json());
 
 // route - adding middleware in our express project
 app.use("/api/contacts", require("./routes/contactsRoutes"))
+
+// middleware - error handler
+app.use(errorHandler)
 
 // listening on port
 app.listen(port, () => {
